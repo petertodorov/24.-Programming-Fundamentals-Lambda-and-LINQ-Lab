@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+class ShortWordsSorted
+{
+    static void Main(string[] args)
+    {
+        string[] separators = new string[] { ".", ", ", ":", ";", "(", ")", "[", "]", "\"", "'", "\\", "/", "!", "?", " "};
+        string[] input = Console.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
+        input = input.Where(x => x.Length < 5).
+            Select(x => x.ToLower()).
+            OrderBy(x => x).Distinct().
+            ToArray();
+        Console.WriteLine(String.Join(", ",input));
+    }
+}
