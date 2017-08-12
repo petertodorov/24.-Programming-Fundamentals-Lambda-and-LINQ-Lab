@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+class MinMaxSumAverage
+{ 
+    static void Main(string[] args)
+    {
+        List<int> input = new List<int>();
+        int n = int.Parse(Console.ReadLine());
+        for (int i = 0; i < n; i++)
+        {
+            input.Add(int.Parse(Console.ReadLine()));
+        }
+        Console.WriteLine($"Sum = {input.Sum()}\nMin = {input.Min()}\nMax = {input.Max()}\nAverage = {input.Average()}");
+    }
+}
