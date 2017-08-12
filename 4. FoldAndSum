@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+class FoldAndSum
+{
+    static void Main(string[] args)
+    {
+        int[] input = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+        int k = input.Length / 4;
+        int[] folded = input.Take(k).Reverse().ToArray();
+        int[] central = input.Skip(k).Take(k * 2).ToArray();
+        int[]foldedSecondPart = input.Skip(3 * k).Take(k).Reverse().ToArray();
+        folded = folded.Concat(foldedSecondPart).ToArray();
+        folded = folded.Select((x, y) => x + central[y]).ToArray();
+        Console.WriteLine(String.Join(" ",folded));
+    }
+}
